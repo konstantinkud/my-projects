@@ -1,0 +1,68 @@
+body{
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+header{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+li {
+    position: relative;
+    text-decoration: none; 
+    cursor: pointer;
+    padding-bottom: 3px;
+}
+
+li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255); 
+    position: absolute;
+    bottom: -1px; 
+    transition: width 0.4s; 
+    border-radius: 10px;
+}
+
+li:hover::after {
+    width: 100%; 
+}
+
+
+
+ul , li {
+    list-style: none;
+    
+}
