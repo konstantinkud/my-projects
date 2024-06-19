@@ -1,20 +1,15 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Регистрация</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <header> Header </header>
-    <div class="posts">
-        <h2>Регистрация</h2>
+{% block title %}Home{% endblock title %}
+{% block content %}
+<h2>Регистрация</h2>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Зарегистрироваться</button>
         </form>
-    </div>
-</body>
-</html>
+{% endblock content %}
+
+
+
+       

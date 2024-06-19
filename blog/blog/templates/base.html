@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.scss' %}">
+</head>
+<body>
+    <header>
+        <a class="logo" href='/'>Blog</a>    
+        <ul class="menu">
+            {% if user.is_authenticated %}
+                    <span>Welcome, {{ user.username }}</span>
+                    <li><a  href="/profile"> Профиль</a></li>
+                    <li><a href="/logout">Выйти</a></li>
+                {% else %}
+                <li><a href="/login"> Вход</a></li>
+                <li><a href="/registration"> Регистрация</a></li>
+                <span>Guest User</span>
+                {% endif %}
+            
+
+            <li>
+                
+            </li>
+        </ul>
+    </header>
+    <div class="content">
+        {% block content %}{% endblock content %}
+    </div>
+</body>
+</html>
