@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 
 class RegistrationForm(forms.Form):
-    username = forms.CharField(label='Имя пользователя', max_length=50)
-    email = forms.EmailField(label='Электронная почта')
-    password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
+    username = forms.CharField(label='', max_length=50, widget=forms.TextInput(attrs={'class': 'login', 'placeholder': 'Имя пользователя'}))
+    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class': 'email', 'placeholder': 'Email'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'password', 'placeholder': 'Пароль'}))
 
     class Meta:
         model = User
@@ -26,8 +26,3 @@ class RegistrationForm(forms.Form):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='',max_length=50, widget=forms.TextInput(attrs={'class': 'login', 'placeholder': 'Имя пользователя'}))
     password = forms.CharField(label='',widget=forms.PasswordInput(attrs={'class': 'password', 'placeholder': 'Пароль'}))
-
-    def cleaned_data(self):
-        cleaned_data = super().cleaned_data
-        # Добавьте здесь логику очистки и валидации данных формы
-        return cleaned_data
